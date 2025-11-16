@@ -148,8 +148,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Use your actual image here */
-    background-image: url('images/herB.jpg'); 
+    background-image: url('https://cdn.pixabay.com/photo/2013/08/11/19/46/coffee-171653_1280.jpg'); 
     background-size: cover;
     background-position: center;
 }
