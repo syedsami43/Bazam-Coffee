@@ -1,0 +1,513 @@
+/* ====================================
+   1. RESET AND BASE STYLES
+   ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Main Color Variables */
+    --primary-color: hsl(30, 80%, 45%);      
+    --highlight-color: hsl(40, 90%, 55%);     
+    --background-light: rgba(255, 255, 255, 0.1);
+    --text-dark: hsl(25, 15%, 15%);
+    --text-light: hsl(25, 10%, 40%);
+    --footer-bg: hsl(25, 15%, 15%);
+    --card-bg: #ffffff;
+    --border-color: hsl(0, 0%, 95%);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.section-title.center {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+
+/* ====================================
+   2. NAVIGATION (NAVBAR)
+   ==================================== */
+#navbar {
+    position: fixed;
+    padding-inline: 20px;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    background: hsl(25, 15%, 15%);
+    height: 50px;
+    transition: .3s;
+}
+
+.nav-container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coffee-icon {
+    color: white;
+    width: 28px;
+    height: 28px;
+}
+
+#navbar.scrolled .coffee-icon {
+    color: var(--primary-color);
+}
+
+.brand-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+}
+
+#navbar.scrolled .brand-name {
+    color: var(--text-dark);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: white;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+#navbar.scrolled .nav-links a {
+    color: var(--text-dark);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--highlight-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+
+/* ====================================
+   3. HERO SECTION
+   ==================================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Use your actual image here */
+    background-image: url('images/herB.jpg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 1rem;
+    max-width: 56rem;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.hero-title .highlight {
+    color: var(--highlight-color);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50px; 
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-button:hover {
+    background-color: hsl(30, 80%, 35%);
+}
+
+
+/* ====================================
+   4. ABOUT SECTION
+   ==================================== */
+.about {
+    padding: 6rem 0;
+    background-color: var(--background-light);
+}
+
+.about-grid {
+    display: flex; /* Flexbox is simple and works well here */
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.about-content, .about-image {
+    flex: 1;
+}
+
+.about-text {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.about-image {
+    order: 2; /* Image on right for LTR languages */
+}
+
+.about-content {
+    order: 1; /* Text on left */
+}
+
+.about-image img {
+    border-radius: 8px; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ====================================
+   5. MENU SECTION
+   ==================================== */
+.menu {
+    padding: 6rem 0;
+    background-color: #ffffff;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 2rem;
+}
+
+.menu-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.menu-image {
+    aspect-ratio: 16 / 9; /* Product images ka ratio behtar rakhte hain */
+    overflow: hidden;
+}
+
+.menu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover .menu-image img {
+    transform: scale(1.03);
+}
+
+.menu-info {
+    padding: 1.5rem;
+}
+
+.menu-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.menu-description {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.menu-price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+
+/* ====================================
+   6. CONTACT / FOOTER SECTION
+   ==================================== */
+.contact {
+    background-color: var(--footer-bg);
+    color: white;
+    padding: 5rem 0 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-brand h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-tagline {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-item svg {
+    color: var(--highlight-color);
+    flex-shrink: 0;
+}
+
+.contact-item a:hover {
+    color: white;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+}
+
+.newsletter {
+    padding-top: 0;
+    margin-bottom: 3rem;
+}
+
+.newsletter-form {
+    max-width: 32rem;
+    margin: 0 auto;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-form button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--highlight-color);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: hsl(40, 90%, 45%);
+}
+
+.copyright {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* ====================================
+   7. RESPONSIVE DESIGN
+   ==================================== */
+
+/* Tablet View */
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 5rem;
+    }
+    
+    .about-grid {
+        /* Flex basis use karte hain jaisa design mein tha */
+        justify-content: space-between;
+        align-items: center;
+    }
+    .about-content {
+        flex-basis: 55%; 
+    }
+    .about-image {
+        flex-basis: 40%;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+
+/* Desktop View */
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 6rem;
+    }
+    .section-title {
+        font-size: 3.2rem;
+    }
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile View */
+@media (max-width: 767px) {
+    .nav-links {
+        display: none; /* Mobile menu ke liye JS ki zaroorat hogi, abhi hide karte hain */
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+    .about-grid {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .about-content, .about-image {
+        flex-basis: 100%;
+        width: 100%;
+        order: initial;
+    }
+    .footer-col {
+        text-align: center;
+    }
+    .contact-info, .social-icons, .newsletter-form {
+        justify-content: center;
+        margin: 0 auto;
+    }
+    .contact-info {
+        /* Mobile par alignment left rakhte hain, jisme icon aur text theek dikhe */
+        align-items: flex-start; 
+        padding-left: 10px; 
+    }
+}
